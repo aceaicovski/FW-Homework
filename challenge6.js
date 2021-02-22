@@ -4,13 +4,13 @@
 // проверить если у нашего obj  есть ключ info и в нем ключ name , 
 // то мы возвращаем значение из этого ключа. (Вложенность может мыть любая к примеру info.data.roles[2])
 
-function getValueByPath(obj, path) {
+// function getValueByPath(obj, path) {
 
-    for ( let path in obj) {
-        if ( obj.hasOwnProperty(path)) {
+//     for ( let path in obj) {
+//         if ( obj.hasOwnProperty(path)) {
 
-    }}
-};
+//     }}
+// };
 
 
 const obj = {
