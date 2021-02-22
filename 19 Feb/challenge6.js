@@ -4,14 +4,6 @@
 // проверить если у нашего obj  есть ключ info и в нем ключ name , 
 // то мы возвращаем значение из этого ключа. (Вложенность может мыть любая к примеру info.data.roles[2])
 
-function getValueByPath(obj, path) {
-
-    for ( let path in obj) {
-        if ( obj.hasOwnProperty(path)) {
-
-    }}
-};
-
 
 const obj = {
     foo: { bar: 'baz' }
@@ -24,14 +16,14 @@ const obj1 = {
     parameters: {height: 176, weight: 58}
 }
 
-function recLookup(obj, path) {
+function getValueByPath(obj, path) {
     let parts = path.split(".");
-    if (parts.length==1){
+    if (parts.length == 1){
         return obj[parts[0]];
     }
-    return recLookup(obj[parts[0]], parts.slice(1).join("."));
+    return getValueByPath(obj[parts[0]], parts.slice(1).join("."));
 }
 
-console.log(recLookup(obj, 'foo.bar'));
-console.log(recLookup(obj1, 'parameters.weight'));
-console.log(recLookup(obj1, 'parameters.height'));
+console.log(getValueByPath(obj, 'foo.bar'));
+console.log(getValueByPath(obj1, 'parameters.weight'));
+console.log(getValueByPath(obj1, 'parameters.height'));
