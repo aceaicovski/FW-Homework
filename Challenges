@@ -20,3 +20,10 @@ function isEmptyObject(obj);// make sure works when nonObject used.
 function isEqual(objA, objB); // boolean, if objA have same values as objA
 function intersections(objA, objB); // object, return common keys between objA and objB
 function getValueByPath(obj, path); // any, obj by the path from the given obj
+
+
+Exercitii:
+1. Write a JavaScript function that returns the function name.
+2. Write a function that receives a random nr of string arguments and returns a story generated with the help of these arguments and other custom text.
+3. Extend the default values functionality (for function parameters) to set to default not only the undefined values but also the null values (but not other falsy values)
+4. Write a function that behaves differently depending on the nr of arguments being passed
