@@ -12,26 +12,37 @@
 //     }}
 // };
 
+function getValueByPath(obj, path) {
+    let propsArr = path.split('.'); 
+    for (let i = 0; i < propsArr.length; i++) {
+            if (obj.hasOwnProperty(propsArr[i])) {
+              obj = obj[propsArr[i]];
+        }
+    }
+ return obj;
+};
+
 
 const obj = {
     foo: { bar: 'baz' }
   };
 
-const obj1 = {
+  const obj1 = {
     name: 'Ana',
     surname: 'Ceaicovski',
     age: 26,
-    parameters: {height: 176, weight: 58}
+    info: {
+        height: 176, 
+        weight: 58,
+        hobbies: {
+            singing: 'songs',
+            painting: 'pictures',
+            dancing: 'disco'
+        }
+    }
 }
 
-function getValueByPath(obj, path) {
-    let parts = path.split(".");
-    if (parts.length == 1){
-        return obj[parts[0]];
-    }
-    return getValueByPath(obj[parts[0]], parts.slice(1).join("."));
-}
 
 console.log(getValueByPath(obj, 'foo.bar'));
-console.log(getValueByPath(obj1, 'parameters.weight'));
-console.log(getValueByPath(obj1, 'parameters.height'));
+console.log(getValueByPath(obj1, 'info.weight'));
+console.log(getValueByPath(obj1, 'info.hobbies.painting'));
