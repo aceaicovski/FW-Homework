@@ -60,9 +60,9 @@ function showMessages () {
     let messageField = document.getElementById('message-field');
     let out = '';
     messages.forEach(function(item) {
-        out += `<p class=""><em>${timeConverter(item.time)}</em></p>`;
-        out += `<p class="">${item.name}</p>`;
-        out += `<p class="">${item.body}</p>`;
+        out += `<div class="message-box"><p class="time"><em>${timeConverter(item.time)}</em></p>
+                    <p class="user-name">${item.name}</p>
+                    <p class="message-text">${item.body}</p></div>`;
     });
     messageField.innerHTML = out;
 }
