@@ -1,5 +1,5 @@
 
-const messages = [];
+let messages = [];
 
 
 document.getElementById('enter-chat').onclick = function() {
@@ -41,14 +41,16 @@ document.getElementById('add-message').onclick = function(event) {
 document.getElementById('delete-all-messages').addEventListener("click", function (event) {
     event.preventDefault();
     localStorage.removeItem('messages');
+    messages.splice(0);
     document.getElementById('message-field').innerHTML = "";
 });
 
-
+console.log(JSON.parse(localStorage.getItem('messages')));
 
 function loadMessages(){
     if (localStorage.messages) {
-        messages = JSON.parse(localStorage.getItem('messages'));
+        let storageContent = JSON.parse(localStorage.getItem('messages'));
+        messages = [...storageContent]
     }
     
     showMessages();
@@ -65,7 +67,7 @@ function showMessages () {
     messageField.innerHTML = out;
 }
 
-function timeConverter(UNIX_timestamp) {
+function timeConverter(UNIX_timestamp){
     var a = new Date(UNIX_timestamp * 1000);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var year = a.getFullYear();
